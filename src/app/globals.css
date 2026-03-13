@@ -1,0 +1,39 @@
+@config "../../tailwind.config.ts";
+@import "tailwindcss";
+
+:root {
+  --brand-green: #2DB84B;
+  --brand-green-dark: #1a9e38;
+  --brand-red: #E63B2E;
+  --brand-dark: #1A1A1A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter), sans-serif;
+  color: #1A1A1A;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-green text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-brand-green-dark transition-all duration-200 inline-flex items-center gap-2;
+  }
+  .btn-outline {
+    @apply border border-gray-300 text-brand-dark px-6 py-3 rounded-full font-semibold text-sm hover:border-brand-green hover:text-brand-green transition-all duration-200 inline-flex items-center gap-2;
+  }
+  .section-label {
+    @apply inline-flex items-center gap-2 text-brand-green text-xs font-semibold uppercase tracking-widest mb-3;
+  }
+  .section-title {
+    @apply font-display text-3xl md:text-4xl font-bold text-brand-dark leading-tight;
+  }
+  .section-subtitle {
+    @apply text-gray-500 text-base leading-relaxed;
+  }
+  .card {
+    @apply bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200;
+  }
+}
