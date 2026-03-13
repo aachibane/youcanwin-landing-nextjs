@@ -20,14 +20,14 @@ const benefits = [
 
 export default function BenefitsBanner() {
   return (
-    <section className="py-20 bg-brand-green">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+    <section className="py-20 bg-brand-gray-light border-y border-black/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-dark mb-4">
           Transformez vos ventes en expérience mémorable
         </h2>
-        <p className="text-white/70 text-base mb-14 max-w-xl mx-auto">
-          YouCanWin offre à vous l'outil clé du produit — une expérience irrésistible
-          capable de faire du football!
+        <p className="text-slate-600 text-lg mb-14 max-w-3xl mx-auto">
+          YouCanWin offre à vos clients plus qu&apos;un produit : une expérience interactive
+          complète autour du football
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -36,13 +36,13 @@ export default function BenefitsBanner() {
             return (
               <div
                 key={b.title}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-left hover:bg-white/20 transition-colors"
+                className="bg-white border border-slate-200 rounded-2xl p-8 text-center shadow-sm"
               >
-                <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                  <Icon size={20} className="text-white" />
+                <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                  <Icon size={28} className="text-brand-green" />
                 </div>
-                <h3 className="font-display font-semibold text-white text-base mb-2">{b.title}</h3>
-                <p className="text-white/70 text-sm leading-relaxed">{b.desc}</p>
+                <h3 className="font-display font-semibold text-brand-dark text-2xl mb-2">{b.title}</h3>
+                <p className="text-slate-600 text-base leading-relaxed">{b.desc}</p>
               </div>
             );
           })}

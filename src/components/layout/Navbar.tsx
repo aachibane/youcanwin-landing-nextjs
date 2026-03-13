@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Nos offres", href: "#offres" },
-  { label: "Nos Jeux", href: "#jeux" },
+  { label: "Nos jeux", href: "#jeux" },
   { label: "Album 2025", href: "#album" },
   { label: "La Ligue", href: "#ligue" },
 ];
@@ -14,27 +14,24 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[72px]">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2.5">
           <div className="w-8 h-8 bg-brand-green rounded-lg flex items-center justify-center">
             <span className="text-white font-display font-bold text-sm">Y</span>
           </div>
-          <span className="font-display font-bold text-brand-dark text-lg">
+          <span className="font-display font-bold text-brand-dark text-[26px] leading-7">
             YouCan<span className="text-brand-green">Win</span>
-          </span>
-          <span className="ml-1 text-[10px] text-brand-green border border-brand-green rounded px-1 font-semibold uppercase tracking-wide hidden sm:inline">
-            beta
           </span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="text-sm text-gray-600 hover:text-brand-green font-medium transition-colors"
+              className="text-sm text-gray-600 hover:text-brand-green font-medium transition-colors px-2 py-1"
             >
               {l.label}
             </a>
@@ -43,8 +40,8 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <a href="#demo" className="btn-primary text-xs px-4 py-2">
-            Démarrer une démo →
+          <a href="#demo" className="btn-primary text-sm px-6 py-2.5 rounded-xl">
+            Demander une démo →
           </a>
         </div>
 

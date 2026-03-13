@@ -1,7 +1,7 @@
 const footerLinks = {
-  "Liens rapides": ["Nos offres", "Nos Jeux", "Album 2025", "La Ligue", "La Liga"],
+  "Liens rapides": ["Nos offres", "Nos Jeux", "Album 2025", "La Ligue"],
   "Contact & Légal": [
-    "contact@youcanwin.com",
+    "contact@youcanwin.africa",
     "Mentions légales",
     "Politique de confidentialité",
     "CGU",
@@ -11,7 +11,7 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-100 pt-14 pb-8">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
@@ -23,11 +23,11 @@ export default function Footer() {
                 YouCan<span className="text-brand-green">Win</span>
               </span>
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              Nous transformons vos produits en expériences interactives qui engagent et fidélisent vos consommateurs.
+            <p className="text-gray-500 text-sm leading-relaxed max-w-md">
+              Plateforme de jeux digitaux pour engager vos communautés autour du football. Un service d&apos;Agency.Africa.
             </p>
             <div className="flex gap-3 mt-5">
-              {["f", "in", "tw"].map((s) => (
+              {["f", "in", "ig", "yt"].map((s) => (
                 <a
                   key={s}
                   href="#"
@@ -60,10 +60,17 @@ export default function Footer() {
           <p className="text-gray-400 text-xs">
             © 2025 YouCanWin. Tous droits réservés.
           </p>
-          <div className="flex items-center gap-2">
-            <span className="text-gray-400 text-xs">Made with</span>
-            <span className="text-brand-red">♥</span>
-            <span className="text-gray-400 text-xs">by Agency Niflea — a Niflea agency</span>
+          <div className="flex items-center gap-2 flex-wrap justify-center">
+            <span className="text-gray-400 text-xs">Un service de</span>
+            <span className="text-brand-dark text-xs font-semibold">Agency.Africa</span>
+            <span className="text-gray-400 text-xs">— games.agency.africa</span>
+          </div>
+        </div>
+
+        <div className="pt-6 flex justify-center">
+          <div className="inline-flex items-center gap-2 border border-slate-200 rounded-full px-4 py-2 text-xs text-slate-500 bg-brand-gray-light">
+            <span className="w-4 h-4 rounded-full bg-brand-green/20" />
+            Site conforme CNDP Maroc
           </div>
         </div>
       </div>

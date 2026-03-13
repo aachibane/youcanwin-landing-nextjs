@@ -1,37 +1,58 @@
+import { Gift, QrCode, ShoppingBag, Trophy, WalletCards } from "lucide-react";
+
 const steps = [
-  { emoji: "📦", label: "Achat produit", desc: "Le client achète un produit en magasin ou en ligne" },
-  { emoji: "📷", label: "Scan QR Code", desc: "Il scanne le code QR sur l'emballage ou l'étiquette" },
-  { emoji: "🎮", label: "Utilise son carte", desc: "Il débloque une carte digitale exclusive" },
-  { emoji: "🃏", label: "Collection", desc: "Il complète sa collection de cartes" },
-  { emoji: "🏆", label: "Récompenses", desc: "Il remporte des prix et des expériences exclusives" },
+  {
+    icon: ShoppingBag,
+    label: "Achat produit",
+    desc: "Le client achète votre produit en magasin",
+  },
+  {
+    icon: QrCode,
+    label: "Scan QR Code",
+    desc: "Il scanne le code sur l'emballage",
+  },
+  {
+    icon: WalletCards,
+    label: "Déblocage carte",
+    desc: "Une carte digitale est débloquée",
+  },
+  {
+    icon: Trophy,
+    label: "Collection",
+    desc: "Il complète sa collection",
+  },
+  {
+    icon: Gift,
+    label: "Récompenses",
+    desc: "Participe aux tirages",
+  },
 ];
 
 export default function HowItWorksSection() {
   return (
-    <section id="how" className="py-20 bg-brand-gray-light">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+    <section id="how" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="section-title mb-3">Un parcours client simple et engageant</h2>
-        <p className="section-subtitle mb-14 max-w-xl mx-auto">
-          De l'achat au produit à la récompense, en 1 clic près
+        <p className="section-subtitle mb-14 max-w-2xl mx-auto text-lg">
+          De l&apos;achat du produit à la récompense, en 5 étapes
         </p>
 
-        <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          {/* Connector line (desktop) */}
-          <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-brand-green via-brand-green/50 to-brand-red" />
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="hidden lg:block absolute top-8 left-[9%] right-[9%] h-px bg-slate-200" />
 
           {steps.map((step, i) => (
-            <div key={step.label} className="flex flex-col items-center text-center flex-1 relative z-10">
-              <div
-                className={`w-16 h-16 rounded-full flex items-center justify-center text-2xl mb-4 shadow-md ${
-                  i === steps.length - 1
-                    ? "bg-brand-red"
-                    : "bg-white border-2 border-brand-green/20"
-                }`}
-              >
-                {step.emoji}
+            <div
+              key={step.label}
+              className="relative z-10 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm"
+            >
+              <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-brand-green text-white text-sm font-semibold flex items-center justify-center">
+                {i + 1}
               </div>
-              <p className="font-semibold text-sm text-brand-dark mb-1">{step.label}</p>
-              <p className="text-gray-500 text-xs leading-snug max-w-[120px]">{step.desc}</p>
+              <div className="w-16 h-16 rounded-2xl bg-green-50 mx-auto mb-4 flex items-center justify-center">
+                <step.icon size={24} className="text-brand-green" />
+              </div>
+              <p className="font-semibold text-base text-brand-dark mb-2">{step.label}</p>
+              <p className="text-gray-500 text-sm leading-5">{step.desc}</p>
             </div>
           ))}
         </div>
