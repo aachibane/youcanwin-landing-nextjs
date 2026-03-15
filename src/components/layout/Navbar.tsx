@@ -16,7 +16,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 font-display">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-[12px] border-b border-gray-100 font-display shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]">
       <div className="mx-auto flex items-center h-[72px] px-4 sm:px-6 lg:px-20">
         <Link href="/" className="flex items-center gap-[12px] shrink-0">
           <div className="shrink-0 w-[40px] h-[40px] rounded-[12px] bg-gradient-to-br from-[#16A34A] to-[#0B6B3A] shadow-[0px_2px_4px_-2px_rgba(0,0,0,0.1),0px_4px_6px_-1px_rgba(0,0,0,0.1)] flex items-center justify-center">
@@ -40,12 +40,14 @@ export default function Navbar() {
 
         <div className="hidden nav:block flex-1" />
 
-        <nav className="hidden nav:flex items-center gap-8 mr-8">
+        <nav className="hidden nav:flex items-center gap-1 mr-3">
           {navLinks.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="text-sm text-gray-600 hover:text-brand-green-dark font-medium transition-colors whitespace-nowrap"
+              className={
+                "text-sm font-medium transition-colors whitespace-nowrap px-3 py-2 rounded-md hover:bg-[#F8FAFC] hover:text-[#0B6B3A] text-[#334155] hover:text-brand-green-dark"
+              }
             >
               {l.label}
             </a>

@@ -14,19 +14,22 @@ const partners = ["Maroc Telecom", "Inwi", "Orange", "Carrefour"];
 
 export default function HeroSection() {
   return (
-    <section className="overflow-hidden bg-four-corners font-display mt-18">
+    <section
+      id="album"
+      className="overflow-hidden bg-four-corners font-display mt-18"
+    >
       <div
         className="z-10"
         style={{
           backgroundImage:
-            "linear-gradient(143deg, #f7fef9 0%, #ffffff 50%, #fef8f8 100%)",
+            "linear-gradient(152deg, #f0fdf4 0%, #ffffff 50%, #fef2f2 100%)",
         }}
       >
         <div className="px-6 sm:px-10 lg:px-20">
           <div className="py-12 md:py-16 lg:py-24 xl:py-32">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="animate-fade-up flex flex-col gap-8">
-                <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-brand-dark leading-[1.125] tracking-[0.028em]">
+                <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[72px] font-bold text-[#0F172A] leading-[1em] tracking-[-0.025em]">
                   Transformez chaque{" "}
                   <span className="relative bg-gradient-to-r from-brand-green to-[#0b6b3a] bg-clip-text text-transparent">
                     produit
@@ -48,19 +51,17 @@ export default function HeroSection() {
                   en expérience de jeu
                 </h1>
 
-                <p className="text-brand-gray-dark text-lg sm:text-xl md:text-2xl max-w-xl">
+                <p className="text-[#475569] text-lg md:text-xl lg:text-2xl max-w-xl leading-[1.33em]">
                   YouCanWin connecte vos marques aux fans de football à travers
-                  des mécaniques de gamification innovantes.{" "}
-                  <strong className="text-brand-dark font-semibold">
-                    Codes QR, cartes digitales, défis et récompenses
-                  </strong>
+                  des mécaniques de gamification innovantes. Codes QR, cartes
+                  digitales, défis et récompenses.
                 </p>
 
                 <div className="grid grid-cols-3 gap-3 sm:gap-17 mt-2 max-w-xl justify-between">
                   {stats.map((s) => (
                     <div key={s.value}>
                       <div
-                        className={`font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-none ${
+                        className={`font-display font-bold text-2xl sm:text-3xl md:text-4xl leading-[1.11em] ${
                           s.tone === "red"
                             ? "text-[#b01219]"
                             : "text-brand-green-dark"
@@ -78,7 +79,7 @@ export default function HeroSection() {
                 <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 py-4">
                   <a
                     href="#demo"
-                    className="group btn-primary rounded-xl font-normal text-sm sm:text-base md:text-lg xl:text-xl px-4 lg:px-8 py-3 lg:py-4 
+                    className="group btn-primary rounded-xl font-normal text-sm sm:text-base md:text-lg xl:text-xl px-2 lg:px-4 xl:px-8 py-3 lg:py-4 
              bg-gradient-to-r from-brand-green-light to-brand-green-dark flex items-center gap-2 justify-center text-white transition-shadow duration-200 hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]"
                   >
                     Voir la démo
@@ -93,7 +94,7 @@ export default function HeroSection() {
                   </a>
                   <a
                     href="#how"
-                    className="bg-white hover:bg-[#F8FAFC] py-2.5 border-2 border-[#CBD5E1] hover:border-[#94A3B8] text-[#334155] px-5 rounded-xl font-medium text-sm sm:text-base md:text-lg xl:text-xlfor transition-all duration-200 inline-flex items-center justify-center gap-2"
+                    className="bg-[#F8FAFC] hover:bg-slate-100 py-3 lg:py-4 border-2 border-[#94A3B8] text-[#334155] px-3 lg:px-4 xl:px-8 rounded-xl font-medium text-sm sm:text-base md:text-lg transition-all duration-200 inline-flex items-center justify-center gap-2"
                   >
                     <Image src={lampIcon} alt="" width={17} height={17} />
                     Comment ça marche
@@ -175,7 +176,7 @@ export default function HeroSection() {
                     )}
                   </div>
 
-                  <div className="hidden sm:flex absolute -top-5 -right-18 bg-white rounded-2xl p-4 shadow-xl border border-slate-100 items-center gap-3 z-20">
+                  <div className="hidden sm:flex absolute -top-5 -right-10 lg:-right-18 bg-white rounded-2xl p-4 shadow-xl border border-slate-100 items-center gap-3 z-20">
                     <Image
                       src={iconQrcode}
                       alt="QR Code"
@@ -192,7 +193,7 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  <div className="hidden sm:flex absolute -bottom-5 -left-27 bg-white rounded-2xl p-4 shadow-xl border border-slate-100 items-center gap-3 z-20">
+                  <div className="hidden sm:flex absolute -bottom-5 -left-10 -lg:-left-27 bg-white rounded-2xl p-4 shadow-xl border border-slate-100 items-center gap-3 z-20">
                     <Image
                       src={iconGift}
                       alt="Récompense"

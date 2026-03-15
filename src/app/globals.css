@@ -38,10 +38,10 @@ body {
     @apply inline-flex items-center gap-2 text-brand-green text-xs font-semibold uppercase tracking-widest mb-3;
   }
   .section-title {
-    @apply font-display text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark leading-tight;
+    @apply font-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#0F172A] leading-[1.11em] tracking-[-0.025em];
   }
   .section-subtitle {
-    @apply text-gray-500 text-sm sm:text-base leading-relaxed;
+    @apply text-[#475569] text-sm sm:text-base lg:text-lg leading-relaxed;
   }
   .card {
     @apply bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200;

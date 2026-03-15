@@ -31,7 +31,7 @@ export default function GlobalStatsSection() {
           {globalStats.map((s) => (
             <div key={s.value} className="flex flex-col items-center text-center">
               <Image src={s.icon} alt={s.label} width={32} height={32} className="mb-3" />
-              <p className="font-display font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#0F172A] leading-none">
+              <p className="font-display font-bold text-xl sm:text-2xl md:text-[30px] text-[#0F172A] leading-[1.2em]">
                 {s.value}
               </p>
               <p className="font-display text-xs sm:text-sm text-[#475569] mt-1 sm:mt-1.5">

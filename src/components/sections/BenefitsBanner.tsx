@@ -23,12 +23,12 @@ const benefits = [
 
 export default function BenefitsBanner() {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-24 bg-gradient-to-l from-[#0b6b3a] to-[#16a34a] font-display">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-24 bg-gradient-to-r from-[#16a34a] to-[#0b6b3a] font-display">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">
           Transformez vos ventes en expérience mémorable
         </h2>
-        <p className="text-white/80 text-sm sm:text-base lg:text-lg max-w-3xl mx-auto">
+        <p className="text-[#F0FDF4] text-sm sm:text-base lg:text-lg max-w-3xl mx-auto">
           YouCanWin offre à vos clients plus qu&apos;un produit : une expérience
           interactive complète autour du football
         </p>
@@ -38,13 +38,15 @@ export default function BenefitsBanner() {
             return (
               <div
                 key={b.title}
-                className="bg-white/10 rounded-2xl p-6 sm:p-8 text-center"
+                className="bg-white/10 backdrop-blur-[8px] rounded-2xl p-6 sm:p-8 text-center"
               >
-                <Image src={b.icon} alt={b.title} width={64} height={64} className="mx-auto mb-4" />
-                <h3 className="font-display font-semibold text-white text-xl sm:text-2xl mb-2">
+                <div className="w-16 h-16 rounded-xl bg-white/20 flex items-center justify-center mx-auto mb-4">
+                  <Image src={b.icon} alt={b.title} width={64} height={64} />
+                </div>
+                <h3 className="font-display font-semibold text-white text-lg sm:text-xl mb-2">
                   {b.title}
                 </h3>
-                <p className="text-white/80 text-sm sm:text-base leading-relaxed">
+                <p className="text-[#F0FDF4] text-sm sm:text-base leading-relaxed">
                   {b.desc}
                 </p>
               </div>

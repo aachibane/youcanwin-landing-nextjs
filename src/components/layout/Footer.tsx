@@ -64,25 +64,26 @@ const socialLinks = [
 
 const footerLinks = {
   "Liens rapides": [
-    { label: "Nos offres" },
-    { label: "Nos Jeux" },
-    { label: "Album 2025" },
-    { label: "À propos" },
+    { label: "Nos offres", href: "#offres" },
+    { label: "Nos Jeux", href: "#jeux" },
+    { label: "Album 2025", href: "#album" },
+    { label: "À propos", href: "#apropos" },
   ],
   "Contact & Légal": [
-    { label: "games@agency.africa" },
-    { label: "Mentions légales" },
+    { label: "games@agency.africa", href: "mailto:games@agency.africa" },
+    { label: "Mentions légales", href: "#mentions" },
     {
       label: "Protection des données (CNDP)",
+      href: "#cndp",
       hasLink: true,
     },
-    { label: "Conditions d'utilisation" },
+    { label: "Conditions d'utilisation", href: "#cgu" },
   ],
 };
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-100 px-4 sm:px-6 lg:px-20 font-display">
+    <footer className="bg-[#F8FAFC] border-t border-[#E5E7EB] px-4 sm:px-6 lg:px-20 font-display">
       <div className="px-0 sm:px-4 py-8 sm:py-12 flex gap-6 sm:gap-8 flex-col">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           <div className="sm:col-span-2 flex flex-col gap-3">
@@ -131,7 +132,7 @@ export default function Footer() {
                 {links.map((l) => (
                   <li key={l.label}>
                     <a
-                      href="#"
+                      href={l.href}
                       className="inline-flex items-center gap-1 text-[#475569] text-sm hover:text-brand-green transition-colors"
                     >
                       <span>{l.label}</span>
