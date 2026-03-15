@@ -7,20 +7,29 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      nav: "900px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       colors: {
         brand: {
-          green: "#2DB84B",
-          "green-dark": "#1a9e38",
-          "green-light": "#e8f9ec",
-          red: "#E63B2E",
+          green: "#16a34a",
+          "green-dark": "#0b6b3a",
+          "green-light": "#15a249",
+          "green-x-light": "#f0fdf4",
+          red: "#dc2626",
           dark: "#1A1A1A",
           gray: "#6B7280",
           "gray-light": "#F5F5F5",
+          "gray-dark": "#475569",
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
         display: ["var(--font-poppins)", "sans-serif"],
       },
       animation: {
@@ -35,6 +44,14 @@ const config: Config = {
         fadeIn: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
+        },
+        backgroundImage: {
+          "four-corners": `
+              radial-gradient(closest-side at top left, #f7fef9 0%, #fefefe 100%),
+              radial-gradient(closest-side at top right, #f5f5f5 0%, #fefefe 100%),
+              radial-gradient(closest-side at bottom left, #f5f5f5 0%, #fefefe 100%),
+              radial-gradient(closest-side at bottom right, #fef8f8 0%, #fefefe 100%)
+        `,
         },
       },
     },

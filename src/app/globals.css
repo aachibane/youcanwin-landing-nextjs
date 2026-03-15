@@ -2,10 +2,12 @@
 @import "tailwindcss";
 
 :root {
-  --brand-green: #2DB84B;
-  --brand-green-dark: #1a9e38;
-  --brand-red: #E63B2E;
-  --brand-dark: #1A1A1A;
+  --font-pepperino: "Pepperino", sans-serif;
+
+  --brand-green: #16a34a;
+  --brand-green-dark: #0b6b3a;
+  --brand-red: #dc2626;
+  --brand-dark: #1a1a1a;
 }
 
 html {
@@ -13,8 +15,16 @@ html {
 }
 
 body {
-  font-family: var(--font-inter), sans-serif;
-  color: #1A1A1A;
+  font-family: var(--font-pepperino);
+  color: #1a1a1a;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 @layer components {
@@ -28,10 +38,10 @@ body {
     @apply inline-flex items-center gap-2 text-brand-green text-xs font-semibold uppercase tracking-widest mb-3;
   }
   .section-title {
-    @apply font-display text-3xl md:text-4xl font-bold text-brand-dark leading-tight;
+    @apply font-display text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark leading-tight;
   }
   .section-subtitle {
-    @apply text-gray-500 text-base leading-relaxed;
+    @apply text-gray-500 text-sm sm:text-base leading-relaxed;
   }
   .card {
     @apply bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200;

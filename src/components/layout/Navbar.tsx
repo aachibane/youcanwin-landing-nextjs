@@ -1,74 +1,106 @@
 "use client";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import arrowRightIcon from "@/assets/components/hero-section/arrow-right.svg";
 
 const navLinks = [
   { label: "Nos offres", href: "#offres" },
   { label: "Nos jeux", href: "#jeux" },
   { label: "Album 2025", href: "#album" },
-  { label: "La Ligue", href: "#ligue" },
+  { label: "À propos", href: "#apropos" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[72px]">
-        {/* Logo */}
-        <a href="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 bg-brand-green rounded-lg flex items-center justify-center">
-            <span className="text-white font-display font-bold text-sm">Y</span>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 font-display">
+      <div className="mx-auto flex items-center h-[72px] px-4 sm:px-6 lg:px-20">
+        <Link href="/" className="flex items-center gap-[12px] shrink-0">
+          <div className="shrink-0 w-[40px] h-[40px] rounded-[12px] bg-gradient-to-br from-[#16A34A] to-[#0B6B3A] shadow-[0px_2px_4px_-2px_rgba(0,0,0,0.1),0px_4px_6px_-1px_rgba(0,0,0,0.1)] flex items-center justify-center">
+            <Image
+              src="/logo.svg"
+              alt="YouCanWin"
+              width={20}
+              height={20}
+              priority
+            />
           </div>
-          <span className="font-display font-bold text-brand-dark text-[26px] leading-7">
-            YouCan<span className="text-brand-green">Win</span>
+          <span className="font-display font-bold text-[20px] leading-[40px]">
+            <span className="text-[#D82424]">You</span>
+            <span className="text-[#1E293B]">can</span>
+            <span className="text-[#0E7B3E]">win</span>
           </span>
-        </a>
+          <span className="font-display font-semibold text-[10px] leading-[15px] text-[#0B6B3A] bg-[#DCFCE7] px-[8px] py-[2px] rounded-full">
+            GAMES
+          </span>
+        </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        <div className="hidden nav:block flex-1" />
+
+        <nav className="hidden nav:flex items-center gap-8 mr-8">
           {navLinks.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="text-sm text-gray-600 hover:text-brand-green font-medium transition-colors px-2 py-1"
+              className="text-sm text-gray-600 hover:text-brand-green-dark font-medium transition-colors whitespace-nowrap"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <a href="#demo" className="btn-primary text-sm px-6 py-2.5 rounded-xl">
-            Demander une démo →
-          </a>
-        </div>
+        <a
+          href="#demo"
+          className="group hidden nav:flex items-center gap-1.5 shrink-0 text-sm font-medium px-5 py-2.5 rounded-lg
+           bg-gradient-to-r from-brand-green-light to-brand-green-dark text-white transition-shadow duration-200 hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]"
+        >
+          Demander une démo
+          <div className="relative w-4 h-4 transition-transform duration-200 group-hover:translate-x-1">
+            <Image
+              src={arrowRightIcon}
+              alt=""
+              fill
+              className="object-contain"
+            />
+          </div>
+        </a>
 
-        {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 text-gray-600"
+          className="nav:hidden ml-auto p-2 text-gray-600"
           onClick={() => setOpen(!open)}
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 flex flex-col gap-4">
+        <div className="nav:hidden bg-white border-t border-gray-100 px-6 py-5 flex flex-col gap-4">
           {navLinks.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="text-sm text-gray-700 font-medium"
+              className="text-sm text-gray-700 font-medium py-1"
               onClick={() => setOpen(false)}
             >
               {l.label}
             </a>
           ))}
-          <a href="#demo" className="btn-primary text-sm w-fit">
-            Démarrer une démo →
+          <a
+            href="#demo"
+            className="group text-sm font-medium px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-green-light to-brand-green-dark text-white text-center w-fit transition-shadow duration-200 hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]"
+          >
+            Demander une démo
+            <div className="relative w-4 h-4 inline-block transition-transform duration-200 group-hover:translate-x-1">
+              <Image
+                src={arrowRightIcon}
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
           </a>
         </div>
       )}

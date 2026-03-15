@@ -1,17 +1,21 @@
 import { Check } from "lucide-react";
-
+import Image from "next/image";
 const plans = [
   {
     name: "Starter",
-    price: "Contactez-nous",
-    target: "Idéal pour tester sur le marché",
+    icon: "/icon-starter.svg",
+    subtitle: "Campagne locale",
+    target: "Idéal pour tester sur un marché",
+    pricing: "Tarification sur mesure selon vos volumes",
     features: [
-      "Jusqu'à 1 000 QR utilisateurs",
-      "1 jeu actif",
-      "1 Marque",
-      "Management visuel des lots",
-      "Dashboard basique",
-      "Support email",
+      "Jusqu'à 1 000 utilisateurs",
+      "Jusqu'à 10K QR codes",
+      "1 pays / région",
+      "Album standard (équipe nationale)",
+      "Hébergement Cloud sécurisé",
+      "Backoffice simplifié",
+      "Support par email",
+      "1 marque",
     ],
     cta: "Demander un devis",
     variant: "outline" as const,
@@ -19,18 +23,20 @@ const plans = [
   },
   {
     name: "Scale",
-    price: "Contactez-nous",
-    target: "Pour vos campagnes multi-catégories",
+    icon: "/icon-scale.svg",
+    subtitle: "Expansion nationale",
+    target: "Pour des campagnes d'envergure",
+    pricing: "Tarification sur mesure selon vos volumes",
     features: [
       "Jusqu'à 50 000 utilisateurs",
-      "5 jeux illimités",
-      "3 Marques",
-      "Configuration des jeux Avancés",
-      "10 Go en Illimité",
-      "Support prioritaire",
-      "Analytics API",
-      "3 utilisateurs API",
-      "Support dédié",
+      "QR codes illimités",
+      "Multi-pays (jusqu'à 5)",
+      "Album complet (toutes les équipes)",
+      "Cloud ou On-Premise",
+      "Backoffice avancé avec analytics",
+      "Support prioritaire 24/7",
+      "Jusqu'à 3 marques",
+      "API REST disponible",
     ],
     cta: "Planifier une démo",
     variant: "primary" as const,
@@ -39,16 +45,21 @@ const plans = [
   },
   {
     name: "Enterprise",
-    price: "Contactez-nous",
-    target: "Pour les groupes & fédérations",
+    icon: "/icon-enterprise.svg",
+    subtitle: "Solution globale",
+    target: "Pour les groupes internationaux",
+    pricing: "Tarification sur mesure selon vos volumes",
     features: [
       "Utilisateurs illimités",
-      "Jeux illimités",
-      "Décentralisation nationale",
-      "Analytics avancées par région",
-      "4 utilisateurs admin (Premium)",
-      "SLA garanti (5-9 NINES)",
-      "Onboarding personnalisé",
+      "QR codes illimités",
+      "Déploiement mondial",
+      "Albums personnalisés par région",
+      "Infrastructure dédiée (On-Premise)",
+      "Multi-marques illimité",
+      "Développements sur-mesure",
+      "Account manager dédié",
+      "SLA garanti 99.9%",
+      "Formation et onboarding complet",
     ],
     cta: "Contactez-nous",
     variant: "outline" as const,
@@ -58,56 +69,84 @@ const plans = [
 
 export default function PricingSection() {
   return (
-    <section id="offres" className="py-20 bg-brand-gray-light">
+    <section
+      id="offres"
+      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-[#fefefe] to-[#f8fafc] font-display"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="section-title mb-3">Des formules adaptées à votre échelle</h2>
-        <p className="section-subtitle mb-14 max-w-2xl mx-auto text-lg">
+        <h2 className="section-title mb-3">
+          Des formules adaptées à votre échelle
+        </h2>
+        <p className="section-subtitle mb-8 sm:mb-14 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">
           Choisissez la solution qui correspond à vos besoins et votre ambition
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`rounded-2xl p-8 text-left relative shadow-sm ${
-                plan.highlighted
-                  ? "bg-white border-2 border-brand-green scale-105"
-                  : "bg-white border border-slate-200"
-              }`}
-            >
-              {plan.badge && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-widest uppercase">
-                    {plan.badge}
-                  </span>
-                </div>
-              )}
-
-              <h3 className="font-display font-bold text-xl text-brand-dark mb-1">{plan.name}</h3>
-              <p className="text-brand-green font-semibold text-sm mb-1 uppercase tracking-wide">{plan.price}</p>
-              <p className="text-gray-500 text-sm mb-6">{plan.target}</p>
-
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((f, idx) => (
-                  <li key={`${plan.name}-${idx}`} className="flex items-start gap-2 text-sm text-gray-600">
-                    <Check size={14} className="text-brand-green mt-0.5 shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#demo"
-                className={`w-full text-center block rounded-xl py-3 text-sm font-semibold transition-all ${
-                  plan.variant === "primary"
-                    ? "bg-brand-green text-white hover:bg-brand-green-dark"
-                    : "border border-gray-300 text-brand-dark hover:border-brand-green hover:text-brand-green"
-                }`}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 max-w-md lg:max-w-none mx-auto">
+          {plans.map((plan) => {
+            return (
+              <div
+                key={plan.name}
+                className={`
+                  rounded-xl p-5 sm:p-6 lg:p-8 text-left relative transition-shadow duration-300 flex flex-col gap-3 sm:gap-4
+                  ${plan.highlighted
+                    ? "bg-white border border-[#FECACA] shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.1),0px_20px_25px_-5px_rgba(0,0,0,0.1)]"
+                    : "bg-white border border-[#E2E8F0] shadow-none hover:shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)]"
+                  }
+                `}
               >
-                {plan.cta}
-              </a>
-            </div>
-          ))}
+                {plan.badge && (
+                  <div className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2">
+                    <span className="text-white text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full uppercase bg-gradient-to-r from-[#DC2626] to-[#B01219] whitespace-nowrap">
+                      {plan.badge}
+                    </span>
+                  </div>
+                )}
+
+                <Image src={plan.icon} alt={plan.name} width={48} height={48} className="shrink-0" />
+
+                <div>
+                  <h3 className="font-semibold text-lg sm:text-xl text-brand-dark">
+                    {plan.name}
+                  </h3>
+                  <p className="text-brand-green font-medium text-xs sm:text-sm">
+                    {plan.subtitle}
+                  </p>
+                </div>
+                <p className="text-brand-gray-dark text-sm sm:text-base">
+                  {plan.target}
+                </p>
+                <p className="text-[#697E9A] text-xs sm:text-sm border-b border-t border-slate-100 py-3 sm:py-4">
+                  {plan.pricing}
+                </p>
+
+                <ul className="space-y-2 sm:space-y-3 pt-1 sm:pt-2 pb-2 sm:pb-4">
+                  {plan.features.map((f, idx) => (
+                    <li
+                      key={`${plan.name}-${idx}`}
+                      className="flex items-start gap-2 text-xs sm:text-sm text-brand-gray-dark"
+                    >
+                      <Check
+                        size={14}
+                        className={`${plan.highlighted ? "text-brand-red" : "text-brand-green"} mt-0.5 shrink-0`}
+                      />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="#demo"
+                  className={`text-center rounded-lg py-2.5 sm:py-3 px-4 text-sm sm:text-base font-medium transition-all ${
+                    plan.variant === "primary"
+                      ? "bg-brand-red text-white hover:bg-[#B01219]"
+                      : "border border-[#CBD5E1] text-[#334155] hover:bg-[#F8FAFC]"
+                  }`}
+                >
+                  {plan.cta}
+                </a>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

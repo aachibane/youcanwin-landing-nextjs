@@ -1,93 +1,94 @@
+import albumDigital from "../../assets/components/catalog-section/album-digital.png";
+import quizFootball from "../../assets/components/catalog-section/quiz-football.png";
+import tombolaDigitale from "../../assets/components/catalog-section/tombola-digitale.png";
+import pronostics from "../../assets/components/catalog-section/pronostics.png";
+import Image from "next/image";
+
 const games = [
   {
-    emoji: "⚽",
+    img: albumDigital,
     title: "Album Digital 2025",
-    desc: "Collectionnez des cartes digitales officielles des plus grands joueurs",
-    tag: "Découvrir",
-    color: "from-green-400 to-green-600",
+    desc: "Collection de cartes avec échanges et défis.",
+    badge: "STAR",
+    link: true,
   },
   {
-    emoji: "🎯",
+    img: quizFootball,
     title: "Quiz Football",
-    desc: "Testez vos connaissances et engagez votre audience en temps réel",
-    tag: "QUIZ",
-    color: "from-yellow-400 to-orange-500",
-    big: true,
+    desc: "Questions sur l'actualité et l'histoire du foot.",
+    badge: "BIENTÔT",
   },
   {
-    emoji: "📊",
+    img: tombolaDigitale,
     title: "Tombola digitale",
-    desc: "Tirages au sort digitaux transparents et certifiés",
-    tag: "Découvrir",
-    color: "from-blue-400 to-blue-600",
+    desc: "Tirages au sort avec lots sponsorisés.",
   },
   {
-    emoji: "📈",
+    img: pronostics,
     title: "Pronostics",
-    desc: "Faites pronostiquer les fans et stimulez l'engagement en continu",
-    tag: "Découvrir",
-    color: "from-purple-400 to-purple-600",
+    desc: "Prédictions de matchs et classements.",
   },
-];
-
-const globalStats = [
-  { value: "500K+", label: "Interactions mensuelles" },
-  { value: "50+", label: "Marques partenaires" },
-  { value: "98%", label: "Taux de satisfaction" },
-  { value: "24/7", label: "Support technique" },
 ];
 
 export default function CatalogSection() {
   return (
-    <section id="jeux" className="py-20 bg-white">
+    <section id="jeux" className="py-12 sm:py-16 lg:py-20 bg-[#f8fafc] font-display">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
+        <div className="text-center mb-8 sm:mb-14">
           <h2 className="section-title mb-3">Catalogue de jeux</h2>
-          <p className="section-subtitle max-w-2xl mx-auto text-lg">
+          <p className="section-subtitle max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">
             Des mécaniques éprouvées pour engager vos audiences
           </p>
         </div>
 
-        {/* Game cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-          {games.map((g) => (
+        <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+          {games.map((g, index) => (
             <div
               key={g.title}
-              className={`rounded-2xl overflow-hidden relative group cursor-pointer shadow-sm border border-slate-200 ${
-                g.big ? "row-span-1" : ""
-              }`}
+              className="rounded-2xl overflow-hidden group cursor-pointer border border-slate-200 transition-shadow duration-100 hover:shadow-2xl"
             >
-              <div
-                className={`aspect-[3/4] bg-gradient-to-b ${g.color} flex flex-col items-center justify-center p-4 relative`}
-              >
-                <div className="text-5xl mb-3">{g.emoji}</div>
-                {g.tag === "QUIZ" && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-white font-display font-black text-4xl tracking-tight opacity-20">
-                      QUIZ
-                    </span>
-                  </div>
+              <div className="relative w-full h-[180px] sm:h-[200px] lg:h-[219px] rounded-t-2xl overflow-hidden">
+                <Image
+                  src={g.img}
+                  alt={g.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                {g.badge && (
+                  <span
+                    className={`absolute top-0 right-0 text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-tr-xl rounded-bl-xl ${
+                      g.badge === "STAR"
+                        ? "bg-gradient-to-r from-[#16A34A] to-[#0B6B3A]"
+                        : g.badge === "BIENTÔT"
+                          ? "bg-[#475569]"
+                          : "bg-gray-400"
+                    }`}
+                  >
+                    {g.badge}
+                  </span>
                 )}
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               </div>
-              <div className="p-5 bg-white rounded-b-2xl">
-                <h3 className="font-semibold text-base text-brand-dark mb-1">{g.title}</h3>
-                <p className="text-gray-500 text-sm leading-snug mb-3">{g.desc}</p>
-                <button className="text-brand-green text-sm font-semibold hover:underline">
-                  {g.tag} →
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Global stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {globalStats.map((s) => (
-            <div key={s.value} className="bg-brand-gray-light rounded-2xl border border-slate-200 py-6 px-4">
-              <div className="w-8 h-8 bg-green-100 rounded-lg mx-auto mb-2" />
-              <div className="font-display font-bold text-3xl text-brand-dark mb-1">{s.value}</div>
-              <div className="text-gray-500 text-sm">{s.label}</div>
+              <div className="border-t border-gray-200 p-4 sm:p-6 flex flex-col gap-2 items-start group">
+                <h3
+                  className={`font-semibold text-sm sm:text-base text-brand-dark ${
+                    index === 0
+                      ? "group-hover:text-brand-green transition-colors duration-200"
+                      : ""
+                  }`}
+                >
+                  {g.title}
+                </h3>
+                <p className="text-gray-500 text-xs sm:text-sm leading-snug">{g.desc}</p>
+                {g.link && (
+                  <button className="text-brand-green text-sm font-medium flex items-center gap-1 transition-colors duration-200">
+                    Découvrir
+                    <span className="transition-transform duration-200 group-hover:translate-x-1">
+                      &gt;
+                    </span>
+                  </button>
+                )}
+              </div>
             </div>
           ))}
         </div>

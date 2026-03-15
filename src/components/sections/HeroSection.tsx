@@ -1,4 +1,8 @@
-import { ChevronRight, Gift, QrCode, Settings2 } from "lucide-react";
+import Image from "next/image";
+import arrowRightIcon from "@/assets/components/hero-section/arrow-right.svg";
+import lampIcon from "@/assets/components/hero-section/lamp.svg";
+import iconQrcode from "@/assets/components/hero-section/icon-qrcode.svg";
+import iconGift from "@/assets/components/hero-section/icon-gift.svg";
 
 const stats = [
   { value: "500K+", label: "Interactions/mois", tone: "green" },
@@ -10,161 +14,200 @@ const partners = ["Maroc Telecom", "Inwi", "Orange", "Carrefour"];
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-brand-gray-light">
+    <section className="overflow-hidden bg-four-corners font-display mt-18">
       <div
-        className="absolute inset-0 opacity-60"
+        className="z-10"
         style={{
           backgroundImage:
-            "linear-gradient(143deg, #f0fdf4 0%, #ffffff 50%, #fef2f2 100%)",
+            "linear-gradient(143deg, #f7fef9 0%, #ffffff 50%, #fef8f8 100%)",
         }}
-      />
+      >
+        <div className="px-6 sm:px-10 lg:px-20">
+          <div className="py-12 md:py-16 lg:py-24 xl:py-32">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="animate-fade-up flex flex-col gap-8">
+                <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-brand-dark leading-[1.125] tracking-[0.028em]">
+                  Transformez chaque{" "}
+                  <span className="relative bg-gradient-to-r from-brand-green to-[#0b6b3a] bg-clip-text text-transparent">
+                    produit
+                    <svg
+                      className="absolute -bottom-1 left-0 w-full"
+                      viewBox="0 0 200 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2 6C50 2 100 2 198 6"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        className="text-brand-green/70"
+                      />
+                    </svg>
+                  </span>{" "}
+                  en expérience de jeu
+                </h1>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 items-center">
-          <div className="animate-fade-up">
-            <h1 className="font-display text-5xl md:text-6xl xl:text-[4.5rem] font-bold text-brand-dark leading-[0.95] tracking-[-0.02em] mb-6">
-              Transformez chaque{" "}
-              <span className="relative bg-gradient-to-r from-brand-green to-[#0b6b3a] bg-clip-text text-transparent">
-                produit
-                <svg
-                  className="absolute -bottom-1 left-0 w-full"
-                  viewBox="0 0 200 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2 6C50 2 100 2 198 6"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    className="text-brand-green/70"
-                  />
-                </svg>
-              </span>{" "}
-              en expérience de jeu
-            </h1>
+                <p className="text-brand-gray-dark text-lg sm:text-xl md:text-2xl max-w-xl">
+                  YouCanWin connecte vos marques aux fans de football à travers
+                  des mécaniques de gamification innovantes.{" "}
+                  <strong className="text-brand-dark font-semibold">
+                    Codes QR, cartes digitales, défis et récompenses
+                  </strong>
+                </p>
 
-            <p className="text-gray-500 text-xl leading-8 mb-8 max-w-xl">
-              YouCanWin connecte vos marques aux fans de football à travers des
-              mécaniques de gamification innovantes.{" "}
-              <strong className="text-brand-dark font-semibold">
-                Codes QR, cartes digitales, défis et récompenses
-              </strong>
-            </p>
-
-            <div className="grid grid-cols-3 gap-4 mb-8 max-w-xl">
-              {stats.map((s) => (
-                <div key={s.value}>
-                  <div
-                    className={`font-display font-bold text-5xl leading-10 ${
-                      s.tone === "red" ? "text-brand-red" : "text-brand-green"
-                    }`}
-                  >
-                    {s.value}
-                  </div>
-                  <div className="text-sm text-gray-500 mt-1">{s.label}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-4 py-4">
-              <a href="#demo" className="btn-primary px-8 py-4 rounded-xl text-xl">
-                Voir la démo <ChevronRight size={16} />
-              </a>
-              <a
-                href="#how"
-                className="bg-white border-2 border-slate-300 text-slate-600 px-8 py-4 rounded-xl font-medium text-xl hover:border-brand-green hover:text-brand-green transition-all duration-200 inline-flex items-center gap-2"
-              >
-                <Settings2 size={16} className="text-brand-green" />
-                Comment ça marche
-              </a>
-            </div>
-
-            <div className="mt-8 border-t border-slate-200 pt-8 max-w-xl">
-              <p className="text-xs text-slate-500 mb-3 uppercase tracking-[0.03em] font-medium">
-                Ils nous font confiance
-              </p>
-              <div className="flex gap-8 items-center flex-wrap">
-                {partners.map((p) => (
-                  <span key={p} className="text-sm font-medium text-slate-400">
-                    {p}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="relative z-10 w-full max-w-[448px]">
-              <div className="bg-[#0f172a] border-8 border-[#0f172a] rounded-[40px] p-2 shadow-2xl">
-                <div className="bg-white rounded-[32px] overflow-hidden">
-                  <div className="bg-gradient-to-b from-brand-green to-[#0b6b3a] px-6 py-8">
-                    <p className="text-white/80 text-xs font-medium uppercase tracking-[0.03em]">
-                      Album Digital 2025
-                    </p>
-                    <h3 className="text-white font-display font-bold text-3xl mt-2">
-                      Ma Collection
-                    </h3>
-                    <div className="flex gap-6 mt-4">
-                      {[
-                        { v: "127", l: "Cartes" },
-                        { v: "76%", l: "Complet" },
-                        { v: "#12", l: "Rang" },
-                      ].map((s) => (
-                        <div key={s.l}>
-                          <div className="text-white font-display font-bold text-3xl leading-8">
-                            {s.v}
-                          </div>
-                          <div className="text-white/75 text-xs mt-1">{s.l}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="p-4 pb-24">
-                    <div className="grid grid-cols-3 gap-2">
-                      {Array.from({ length: 6 }).map((_, i) => (
-                        <div
-                          key={i}
-                          className="h-40 rounded-lg bg-gradient-to-br from-slate-100 to-slate-200"
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="px-6 pt-3 pb-2 border-t border-slate-200 flex justify-between">
-                    {[
-                      "Collection",
-                      "Scanner",
-                      "Échanges",
-                      "Profil",
-                    ].map((label) => (
-                      <div key={label} className="flex flex-col items-center gap-1.5">
-                        <div className="w-5 h-5 rounded bg-slate-300" />
-                        <span className="text-[10px] text-slate-600">{label}</span>
+                <div className="grid grid-cols-3 gap-3 sm:gap-17 mt-2 max-w-xl justify-between">
+                  {stats.map((s) => (
+                    <div key={s.value}>
+                      <div
+                        className={`font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-none ${
+                          s.tone === "red"
+                            ? "text-[#b01219]"
+                            : "text-brand-green-dark"
+                        }`}
+                      >
+                        {s.value}
                       </div>
+                      <div className="text-sm text-brand-gray-dark mt-1 font-medium">
+                        {s.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 py-4">
+                  <a
+                    href="#demo"
+                    className="group btn-primary rounded-xl font-normal text-sm sm:text-base md:text-lg xl:text-xl px-4 lg:px-8 py-3 lg:py-4 
+             bg-gradient-to-r from-brand-green-light to-brand-green-dark flex items-center gap-2 justify-center text-white transition-shadow duration-200 hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]"
+                  >
+                    Voir la démo
+                    <div className="relative w-3 h-3 xl:w-4 xl:h-4 transition-transform duration-200 group-hover:translate-x-1">
+                      <Image
+                        src={arrowRightIcon}
+                        alt=""
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="#how"
+                    className="bg-white hover:bg-[#F8FAFC] py-2.5 border-2 border-[#CBD5E1] hover:border-[#94A3B8] text-[#334155] px-5 rounded-xl font-medium text-sm sm:text-base md:text-lg xl:text-xlfor transition-all duration-200 inline-flex items-center justify-center gap-2"
+                  >
+                    <Image src={lampIcon} alt="" width={17} height={17} />
+                    Comment ça marche
+                  </a>
+                </div>
+
+                <div className="border-t border-slate-200 pt-[33px] max-w-xl flex flex-col gap-4">
+                  <p className="text-xs text-slate-500 mb-3 uppercase font-medium">
+                    Ils nous font confiance
+                  </p>
+                  <div className="flex gap-5 sm:gap-8 items-center flex-wrap">
+                    {partners.map((p) => (
+                      <span
+                        key={p}
+                        className="text-xs sm:text-sm font-medium text-slate-400"
+                      >
+                        {p}
+                      </span>
                     ))}
                   </div>
                 </div>
               </div>
 
-              <div className="absolute -top-4 -right-5 bg-white rounded-2xl p-4 shadow-xl border border-slate-100 flex items-center gap-3">
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                  <QrCode size={18} className="text-brand-green" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-brand-dark">Scan QR Code</p>
-                  <p className="text-xs text-slate-500">Débloquer une carte</p>
-                </div>
-              </div>
+              <div className="hidden md:block flex ml-8 px-6 lg:px-10 xl:px-16">
+                <div className="relative z-10 w-full max-w-lg mx-auto animate-fade-up">
+                  <div className="bg-[#1e293b] rounded-[40px] p-[8px] shadow-2xl">
+                    <div className="bg-white rounded-[31px] overflow-hidden pb-[231px] relative flex flex-col gap-4">
+                      <div className="bg-gradient-to-b from-brand-green to-[#0b6b3a] px-6 py-8 flex flex-col gap-2">
+                        <p className="text-white/80 text-xs font-medium uppercase">
+                          Album Digital 2025
+                        </p>
+                        <h3 className="text-white font-bold text-2xl">
+                          Ma Collection
+                        </h3>
+                        <div className="flex gap-4 pt-4 text-center">
+                          {[
+                            { v: "127", l: "Cartes" },
+                            { v: "76%", l: "Complet" },
+                            { v: "#12", l: "Rang" },
+                          ].map((s) => (
+                            <div key={s.l}>
+                              <div className="text-white font-display font-bold text-2xl">
+                                {s.v}
+                              </div>
+                              <div className="text-white/75 text-xs font-regular">
+                                {s.l}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
 
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl border border-slate-100 flex items-center gap-3">
-                <div className="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center">
-                  <Gift size={18} className="text-brand-red" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-brand-dark">Récompense</p>
-                  <p className="text-xs text-slate-500">Tirage hebdomadaire</p>
+                      <div className="px-4">
+                        <div className="grid grid-cols-3 gap-2">
+                          {Array.from({ length: 6 }).map((_, i) => (
+                            <div
+                              key={i}
+                              className="aspect-[3/4] rounded-lg bg-[#e4eaf0]"
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute left-0 right-0 bottom-0 px-6 sm:px-8 pt-3 pb-3 bg-white border-t border-slate-100 flex justify-between">
+                    {" "}
+                    {["Collection", "Scanner", "Échanges", "Profil"].map(
+                      (label) => (
+                        <div
+                          key={label}
+                          className="flex flex-col items-center gap-1"
+                        >
+                          <div className="w-5 h-5 rounded-md bg-slate-200" />
+                          <span className="text-[10px] text-slate-500 font-medium">
+                            {label}
+                          </span>
+                        </div>
+                      ),
+                    )}
+                  </div>
+
+                  <div className="hidden sm:flex absolute -top-5 -right-18 bg-white rounded-2xl p-4 shadow-xl border border-slate-100 items-center gap-3 z-20">
+                    <Image
+                      src={iconQrcode}
+                      alt="QR Code"
+                      width={40}
+                      height={40}
+                    />
+                    <div>
+                      <p className="text-sm font-semibold text-brand-dark">
+                        Scan QR Code
+                      </p>
+                      <p className="text-xs text-slate-500">
+                        Débloquer une carte
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="hidden sm:flex absolute -bottom-5 -left-27 bg-white rounded-2xl p-4 shadow-xl border border-slate-100 items-center gap-3 z-20">
+                    <Image
+                      src={iconGift}
+                      alt="Récompense"
+                      width={40}
+                      height={40}
+                    />
+                    <div>
+                      <p className="text-sm font-semibold text-brand-dark">
+                        Récompense
+                      </p>
+                      <p className="text-xs text-slate-500">
+                        Tirage hebdomadaire
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
