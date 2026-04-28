@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# YouCanWin – Landing Page
 
-## Getting Started
+Pixel-perfect Next.js implementation of the YouCanWin landing page, converted from a Figma design as part of a frontend challenge for [VOID Agency](https://void.fr).
 
-First, run the development server:
+**Live demo:** https://nextjs-rg3l0gqhz-achibanes-projects.vercel.app  
+**Figma design:** [View on Figma](https://www.figma.com/design/KLwSpqc82RtMw83V93Qwaa/YouCanWin-%E2%80%93-Landing-Page)
+
+---
+
+## About the project
+
+YouCanWin is a Moroccan gamification platform that connects brands to football fans through digital collectible cards, QR code activations, and reward mechanics. This repo contains the marketing landing page — a static, responsive implementation built from a Figma spec.
+
+---
+
+## Tech stack
+
+| | |
+|---|---|
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Deployment | Vercel |
+
+---
+
+## Features
+
+- Pixel-accurate implementation from Figma
+- Fully responsive — mobile, tablet, desktop
+- Smooth scroll navigation
+- Optimized images via `next/image`
+- Clean component structure, one component per section
+
+---
+
+## Getting started
 
 ```bash
+# Install dependencies
+npm install
+
+# Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+src/
+├── app/
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── Navbar.tsx
+│   ├── Hero.tsx
+│   ├── HowItWorks.tsx
+│   ├── Features.tsx
+│   ├── Backoffice.tsx
+│   ├── Pricing.tsx
+│   ├── Games.tsx
+│   ├── CTA.tsx
+│   └── Footer.tsx
+└── public/
+    └── (assets from Figma)
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This was built as a frontend challenge — the goal was faithful Figma reproduction with clean, maintainable code. No backend, no CMS — pure static implementation.
